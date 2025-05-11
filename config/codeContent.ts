@@ -27,11 +27,11 @@ console.log(getSkills());
 `,
 
   contact: `const contactDetails = {
-    name: "Abhishek Ghimire",
-    email: "hi@abhishekg.com.np",
-    mobile: "+977-9847526298",
-    location: "Kathmandu, Nepal",
-    linkedIn: "linkedin.com/in/cypherab01",
+    name: "Augusto Cesar de Barros Silveira",
+    email: "augustoc.bsilveira@gmail.com",
+    mobile: "+55 (41) 9 9960-2885",
+    location: "Curitiba, Brasil",
+    linkedIn: "linkedin.com/in/augustocbs",
     github: "github.com/cypherab01",
   };
   

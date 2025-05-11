@@ -1,17 +1,14 @@
 import { title } from "process";
 
 export const siteConfig = {
-  name: "abhishekg.com.np",
-  url: "https://abhishekg.com.np",
-  ogImage: "https://abhishekg.com.np/og.jpg",
+  name: "augustocbs.com.br",
+  url: "https://augustocbs.com.br",
   description: "Portfolio de Augusto Cesar",
   links: {
     shadcn: "https://ui.shadcn.com/",
-    telegram: "https://t.me/cypherab01",
-    twitter: "https://x.com/cypherab01",
-    github: "https://github.com/cypherab01/abhishekg.com.np",
+    github: "https://github.com/augustocbs/portfolio",
     githubProfile: "https://github.com/augustocbs",
-    resume: "https://www.overleaf.com/read/pwbbqtpthxxr#946f81",
+    resume: "https://www.overleaf.com/read/pwbbqtpthxxr#946f81",// alterar
     email: "mailto:augustoc.bsilveira@gmail.com",
     githubUsername: "augustocbs",
   },
@@ -40,7 +37,7 @@ export const siteConfig = {
     notebook: {
       title: "Notebook · Full Stack Web Application",
       github: "https://github.com/cypherab01/notebook",
-      live: "https://notebook.abhishekg.com.np",
+      // live: "https://notebook.abhishekg.com.np",
       description:
         "A comprehensive full-stack web application for note-taking. While it serves as a basic CRUD application, it incorporates modern technologies like Auth.js (NextAuth), MongoDB, and API routes in Next.js, among others.",
       tags: [

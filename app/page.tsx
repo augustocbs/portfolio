@@ -16,7 +16,7 @@ const IntroductionPage = async () => {
   return (
     <>
       <PageHeader>
-        <PageHeaderHeading>Abhishek Ghimire</PageHeaderHeading>
+        <PageHeaderHeading>Augusto Cesar</PageHeaderHeading>
         <PageHeaderHeading className="mt-2 text-muted-foreground">
           A coder by day, problem-solver by night!
         </PageHeaderHeading>

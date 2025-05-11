@@ -11,7 +11,7 @@ const AboutMePage = () => {
   return (
     <>
       <PageHeader>
-        <PageHeaderHeading>About Abhishek</PageHeaderHeading>
+        <PageHeaderHeading>Sobre mim</PageHeaderHeading>
         <PageHeaderHeading className="mt-2 text-muted-foreground">
           More than just a title—let’s dive deeper!
         </PageHeaderHeading>
