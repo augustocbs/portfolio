@@ -13,38 +13,41 @@ const AboutMePage = () => {
       <PageHeader>
         <PageHeaderHeading>Sobre mim</PageHeaderHeading>
         <PageHeaderHeading className="mt-2 text-muted-foreground">
-          More than just a title—let’s dive deeper!
+          Transformando desafios em soluções inovadoras
         </PageHeaderHeading>
         <PageHeaderDescription>
-          I am a passionate Software Engineer with a knack for building
-          full-stack web applications using modern technologies like Next.js and
-          Tailwind CSS. My journey in tech began with a curiosity for solving
-          real-world problems through innovative solutions, which evolved into a
-          love for crafting user-centric digital experiences.
+          Como Engenheiro de Software, minha paixão pela tecnologia vai além da
+          programação. Especializado no desenvolvimento back-end, construo APIs
+          robustas e escaláveis utilizando PHP/Laravel, .NET e Node.js. Minha
+          jornada começou com o desejo de resolver desafios complexos,
+          transformando-se em uma busca constante pela excelência em
+          arquiteturas de software que entregam valor real aos usuários.
         </PageHeaderDescription>
 
         <PageHeaderDescription>
-          With a strong foundation in JavaScript frameworks, I focus on creating
-          scalable, efficient, and visually appealing applications. Currently, I
-          am diving deeper into mobile development with React Native and Expo to
-          expand my skill set and deliver versatile, cross-platform solutions.
+          Com sólida experiência em frameworks JavaScript, dedico-me a criar
+          aplicações que combinam performance e usabilidade. Atualmente, estou
+          expandindo meus horizontes no desenvolvimento mobile com React Native
+          e Expo, buscando oferecer soluções multiplataforma que atendam às
+          necessidades modernas do mercado.
         </PageHeaderDescription>
 
         <PageHeaderDescription>
-          Beyond coding, I thrive in collaborative environments and enjoy
-          tackling challenging problems with creative solutions. I aim to
-          contribute to impactful projects that make a difference in users'
-          lives.
+          Para além do desenvolvimento, prospero em ambientes colaborativos onde
+          posso contribuir com soluções criativas para desafios complexos. Meu
+          objetivo é participar de projetos significativos que gerem impacto
+          positivo na vida das pessoas, sempre buscando aprender e evoluir com
+          cada nova experiência.
         </PageHeaderDescription>
       </PageHeader>
 
-      <CodeSnippet title="aboutMe.ts" code={code.aboutMe} />
+      <CodeSnippet title="aboutMe.tsx" code={code.aboutMe} />
 
       <Pager
         prevHref="/"
         nextHref="/projects"
-        prevTitle="Introduction"
-        nextTitle="Projects"
+        prevTitle="Introdução"
+        nextTitle="Projetos"
       />
     </>
   );

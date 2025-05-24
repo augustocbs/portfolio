@@ -1,139 +1,122 @@
 "use client";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useActionState, useEffect, useState, Suspense } from "react";
 import { toast } from "sonner";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { ControlledInput } from "@/components/controlled/controlled-input";
 import { sendMessageServerAction } from "../actions/sendMailServerAction";
 
-const labelWithRequiredStar = ({ label }: { label: string }) => {
-  return (
-    <Label htmlFor={label.toLowerCase()}>
-      <span className="flex">
-        <span>{label}</span>
-        <span className="text-red-500">*</span>
-      </span>
-    </Label>
-  );
-};
+const formSchema = z.object({
+  fullname: z
+    .string()
+    .min(3, "Estranho, seu nome é beeeem curto. Tente seu nome completo")
+    .max(
+      50,
+      "Uau, seu nome é bem grande. Nesse caso, me passe só uma parte dele."
+    ),
+  email: z.string().email("Seu email não é válido, verifique-o 🤖"),
+  message: z
+    .string()
+    .min(10, "A mensagem está muito curta... Por favor, me conte mais 😉")
+    .max(
+      500,
+      "A mensagem está bem grande. Obrigado mas, vou precisar que diminua ela um pouco XP"
+    ),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
-  const [state, action, isPending] = useActionState(
-    sendMessageServerAction,
-    null
-  );
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    message: "",
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    mode: "onChange",
+    defaultValues: {
+      fullname: "",
+      email: "",
+      message: "",
+    },
   });
 
-  useEffect(() => {
-    if (state?.success) {
-      toast.success(state.success);
-      setFormData({ fullname: "", email: "", message: "" });
-    }
-  }, [state?.success]);
+  const onSubmit = async (data: FormData) => {
+    try {
+      const formData = new FormData();
+      formData.append("fullname", data.fullname);
+      formData.append("email", data.email);
+      formData.append("message", data.message);
 
-  useEffect(() => {
-    if (state?.error) {
-      toast.error(state.error);
+      const response = await sendMessageServerAction(formData);
+
+      if (response.success) {
+        toast.success(response.success);
+        reset();
+      } else {
+        toast.error(response.error);
+      }
+    } catch (error) {
+      toast.error("Erro ao enviar a mensagem. Tente novamente.");
     }
-  }, [state?.error]);
+  };
+
   return (
-    <form action={action} className="space-y-6">
-      <div className="space-y-4">
-        {labelWithRequiredStar({ label: "Name" })}
-        <div className="space-y-1">
-          <Input
-            type="text"
-            required
-            id="name"
-            placeholder="Your name, your fame"
-            className="px-2 py-6"
-            name="fullname"
-            value={formData.fullname}
-            onChange={(e) =>
-              setFormData({ ...formData, fullname: e.target.value })
-            }
-          />
-          {state?.fullnameError && (
-            <span className="text-sm text-red-500">{state.fullnameError}</span>
-          )}
-        </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <ControlledInput
+        name="fullname"
+        control={control}
+        label="Nome"
+        placeholder="Seu nome"
+        error={errors.fullname?.message}
+      />
+      <ControlledInput
+        name="email"
+        control={control}
+        label="E-mail"
+        placeholder="Seu e-mail"
+        type="email"
+        error={errors.email?.message}
+      />
+      <div className="space-y-2">
+        <Label htmlFor="message">Mensagem</Label>
+        <Textarea
+          id="message"
+          placeholder="Sua mensagem"
+          {...control.register("message")}
+        />
+        {errors.message && (
+          <span className="text-sm text-red-500">{errors.message.message}</span>
+        )}
       </div>
-      <div className="space-y-4">
-        {labelWithRequiredStar({ label: "Email" })}
-        <div className="flex flex-col space-y-1">
-          <Input
-            type="email"
-            required
-            id="email"
-            placeholder="Where can I reach you back?"
-            className="px-2 py-6"
-            name="email"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-          />
-          <span className="text-sm text-muted-foreground">
-            Temporary emails are also accepted, unless you wish to hear back 😉
-          </span>
-          {state?.emailError && (
-            <span className="text-sm text-red-500">{state.emailError}</span>
-          )}
-        </div>
-      </div>
-      <div className="space-y-4">
-        {labelWithRequiredStar({ label: "Message" })}
-        <div className="space-y-1">
-          <Textarea
-            required
-            id="message"
-            placeholder="Your words, my inbox."
-            className="px-2 py-4"
-            name="message"
-            value={formData.message}
-            onChange={(e) =>
-              setFormData({ ...formData, message: e.target.value })
-            }
-          />
-          {state?.messageError && (
-            <span className="text-sm text-red-500">{state.messageError}</span>
-          )}
-        </div>
-      </div>
-
       <div className="space-y-4">
         <Button
           type="submit"
           className="w-full px-8 py-6 cursor-pointer"
           size="lg"
           variant="default"
-          disabled={isPending}
+          disabled={isSubmitting}
         >
-          {isPending ? "Transporting your message to my inbox... 📨" : "Submit"}
+          {isSubmitting
+            ? "Transportando sua mensagem para minha caixa de entrada... 📨"
+            : "Enviar"}
         </Button>
-
         <Button
           type="reset"
           className="w-full px-8 py-6 cursor-pointer"
           size="lg"
           variant="outline"
-          onClick={() =>
-            setFormData({
-              fullname: "",
-              email: "",
-              message: "",
-            })
-          }
+          onClick={() => reset()}
         >
-          Reset
+          Resetar
         </Button>
       </div>
     </form>
   );
 };
+
 export default ContactForm;

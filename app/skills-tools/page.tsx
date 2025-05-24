@@ -1,14 +1,12 @@
 import CodeSnippet from "@/components/code-snippet";
-import { Icons } from "@/components/icons";
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
 import Pager from "@/components/pager";
-import { Badge } from "@/components/ui/badge";
+import { SkillsBadges } from "@/components/skill-badges";
 import { code } from "@/config/codeContent";
-import { mySkills } from "@/constants";
 
 const SkillsToolsPage = () => {
   return (
@@ -16,42 +14,29 @@ const SkillsToolsPage = () => {
       <PageHeader>
         <PageHeaderHeading>Skills & Tools</PageHeaderHeading>
         <PageHeaderHeading className="mt-2 text-muted-foreground">
-          Learned by coding all night and debugging all day!
+          Conhecimento construído através de dedicação e experiência prática
         </PageHeaderHeading>
         <PageHeaderDescription>
-          As a full-stack Software Engineer, I specialize in building scalable
-          web applications using modern technologies such as Next.js, React, and
-          Tailwind CSS. I'm also expanding my expertise into mobile development
-          with React Native and Expo to create cross-platform solutions.
+          Como Engenheiro de Software Full-stack, sou especializado no
+          desenvolvimento de aplicações web escaláveis utilizando tecnologias
+          modernas como Next.js, React e Tailwind CSS. Minha expertise abrange
+          tanto o desenvolvimento front-end quanto back-end, permitindo criar
+          soluções completas e integradas. Atualmente, estou expandindo meus
+          conhecimentos para o desenvolvimento mobile com React Native e Expo,
+          visando oferecer soluções multiplataforma que atendam às demandas
+          atuais do mercado.
         </PageHeaderDescription>
       </PageHeader>
 
-      {/* skills and tools badges */}
+      <SkillsBadges />
 
-      <div
-        id="badges"
-        className="flex flex-wrap items-center justify-center gap-2 my-4"
-      >
-        {mySkills.map((item) => (
-          <Badge
-            key={item.title}
-            className="p-4 py-2 border border-secondary bg-secondary-foreground text-secondary"
-          >
-            {Icons[item.icon as keyof typeof Icons]?.({
-              className: "mr-2 size-4",
-            })}
-            {item.title}
-          </Badge>
-        ))}
-      </div>
-
-      <CodeSnippet title="skills.ts" code={code.skillsTools} />
+      <CodeSnippet title="skills.php" code={code.skillsTools} />
 
       <Pager
         prevHref="/projects"
         nextHref="/experience"
-        prevTitle="Projects"
-        nextTitle="Experience"
+        prevTitle="Projetos"
+        nextTitle="Experiências"
       />
     </>
   );

@@ -7,45 +7,40 @@ export const docsConfig = {
   ],
   sidebarNav: [
     {
-      title: "Sections",
+      title: "Seções",
       items: [
         {
-          title: "Introduction",
+          title: "Introdução",
           href: "/",
           items: [],
         },
         {
-          title: "About Me",
+          title: "Sobre mim",
           href: "/about",
           items: [],
         },
         {
-          title: "Projects",
+          title: "Projetos",
           href: "/projects",
           items: [],
         },
         {
-          title: "Skills & Tools",
+          title: "Conhecimentos",
           href: "/skills-tools",
           items: [],
         },
         {
-          title: "Experience",
+          title: "Experiência",
           href: "/experience",
           items: [],
         },
         {
-          title: "Education",
+          title: "Educação",
           href: "/education",
           items: [],
         },
-        // {
-        //   title: "Testimonials",
-        //   href: "/testimonials",
-        //   items: [],
-        // },
         {
-          title: "Contact",
+          title: "Contato",
           href: "/contact",
           items: [],
         },

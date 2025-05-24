@@ -18,27 +18,26 @@ const IntroductionPage = async () => {
       <PageHeader>
         <PageHeaderHeading>Augusto Cesar</PageHeaderHeading>
         <PageHeaderHeading className="mt-2 text-muted-foreground">
-          A coder by day, problem-solver by night!
+          Transformando ideias em código com paixão e dedicação.
         </PageHeaderHeading>
         <PageHeaderDescription>
-          I am a dedicated Software Engineer specializing in full-stack
-          application development. I enjoy crafting responsive web solutions
-          using modern technologies like Next.js, React, and Tailwind CSS.
-          Currently, I am expanding my skills into mobile development with React
-          Native and Expo, aiming to deliver comprehensive, user-centric
-          software solutions.
+          Engenheiro de Software com paixão por transformar desafios em soluções
+          inovadoras. Com experiência em desenvolvimento web fullstack, atuo com
+          tecnologias modernas como PHP, .NET, Node.js e React. Meu objetivo é
+          criar aplicações que não apenas funcionem, mas que entreguem valor
+          real através de código limpo e boas práticas de desenvolvimento.
         </PageHeaderDescription>
         <PageActions>
-          <Button asChild size="sm" className="rounded-md">
+          {/* <Button asChild size="sm" className="rounded-md">
             <Link href={siteConfig.links.resume} target="_blank">
-              Get Resume
+              Currículo
               <ExternalLink className="size-3" strokeWidth={2} />
             </Link>
-          </Button>
+          </Button> */}
           <Button asChild size="sm" variant="ghost" className="rounded-md">
             <Link href={siteConfig.links.email}>
               <Mail className="size-4" />
-              Send Mail
+              Enviar E-mail
             </Link>
           </Button>
         </PageActions>

@@ -8,7 +8,6 @@ export const siteConfig = {
     shadcn: "https://ui.shadcn.com/",
     github: "https://github.com/augustocbs/portfolio",
     githubProfile: "https://github.com/augustocbs",
-    resume: "https://www.overleaf.com/read/pwbbqtpthxxr#946f81",// alterar
     email: "mailto:augustoc.bsilveira@gmail.com",
     githubUsername: "augustocbs",
   },
