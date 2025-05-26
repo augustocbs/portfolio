@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export const siteConfig = {
   name: "augustocbs.com.br",
   url: "https://augustocbs.com.br",
@@ -11,84 +9,36 @@ export const siteConfig = {
     email: "mailto:augustoc.bsilveira@gmail.com",
     githubUsername: "augustocbs",
   },
-  bitinfonepal: "https://bitinfonepal.com",
   projects: {
-    bitinfonepal: {
+    sebrae: {
       title:
-        "bitinfonepal.com · An educational website for BIT students in Nepal",
+        "SEBRAE Ingresse · Plataforma digital para capacitação de empreendedores",
       description:
-        "bitinfonepal.com is a dedicated educational platform for BIT students in Nepal, offering resources such as study materials, file uploads, and pagination features, all designed with an intuitive interface using Next.js, React, and Tailwind CSS. The platform also integrates MathJax for rendering complex mathematical formulas, enhancing the academic experience for students. Developed with TypeScript, and Nodemailer.",
-      tags: [
-        "Next.js",
-        "React",
-        "Tailwind CSS",
-        "AppScript",
-        "Cheerio",
-        "SheetAPI",
-        "TypeScript",
-        "Nodemailer",
-        "File Upload",
-        "MathJax",
-        "Web Application",
-      ],
-      live: "https://bitinfonepal.com",
+        "Plataforma digital inovadora desenvolvida exclusivamente para o SEBRAE, oferecendo um ambiente completo de aprendizagem com cursos, mentorias e ferramentas essenciais para o desenvolvimento empresarial. Facilita o acesso a conteúdos educacionais premium e fornece suporte personalizado para empreendedores em diferentes estágios de negócio.",
+      link: "https://hub.sebraeingresse.com.br",
+      slug: "sebrae",
     },
-    notebook: {
-      title: "Notebook · Full Stack Web Application",
-      github: "https://github.com/cypherab01/notebook",
-      // live: "https://notebook.abhishekg.com.np",
+    livid: {
+      title:
+        "LIVID · Prova de Vida Digital, Consulta de Óbito e Recadastramento Automatizado",
       description:
-        "A comprehensive full-stack web application for note-taking. While it serves as a basic CRUD application, it incorporates modern technologies like Auth.js (NextAuth), MongoDB, and API routes in Next.js, among others.",
-      tags: [
-        "Next.js",
-        "React",
-        "Tailwind CSS",
-        "shadcn/ui",
-        "Next.js API Routes",
-        "MongoDB",
-        "Auth.js",
-        "JWT Authentication",
-        "Bcrypt",
-        "Nodemailer",
-        "Radix UI",
-        "TypeScript",
-        "Full Stack",
-        "Web Application",
-      ],
+        "Solução completa para prova de vida digital, atualização cadastral e verificação de óbitos. Oferece integração via API com sistemas corporativos, garantindo segurança, agilidade e conformidade em processos de validação de dados.",
+      link: "https://livid.com.br/",
+      slug: "livid",
     },
-    gharkosaaman: {
-      title: "Gharkosaaman · An Exchange Platform",
+    buscaGlobal: {
+      title: "Busca Global · Sistema Integrado de Certidões",
       description:
-        "An exchange platform for exchanging goods & items available unused in the home.",
-      tags: [
-        "Next.js",
-        "Tailwind CSS",
-        "MongoDB",
-        "JWT Authentication",
-        "Bcrypt",
-        "Nodemailer",
-        "Radix UI",
-        "TypeScript",
-        "Full Stack",
-        "Uploadthing",
-        "Web Application",
-      ],
+        "Sistema pioneiro que unifica o acesso e emissão de certidões cartoriais em toda América Latina. Oferece uma interface intuitiva para busca, solicitação e emissão de documentos, integrando cartórios de diferentes países e automatizando processos burocráticos tradicionalmente complexos.",
+      link: "https://busca.global",
+      slug: "buscaGlobal",
     },
-    movie: {
-      title: "Movie App · Discover about the movies",
-      description: "React Native app for discovering about the movies.",
-      github: "https://github.com/cypherab01/rn-movie-app",
-      tags: [
-        "React Native",
-        "Expo",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Navigation",
-        "NativeWind",
-        "Reanimated",
-        "Mobile App",
-      ],
+    way: {
+      title: "WAY Odontologia · Assistente Digital Odontológico",
+      description:
+        "Aplicativo especializado que revoluciona a prática odontológica, fornecendo suporte baseado em evidências para diagnósticos e planejamentos clínicos. Combina inteligência artificial com protocolos clínicos validados, permitindo que profissionais e estudantes tomem decisões mais precisas e seguras no tratamento de seus pacientes.",
+      link: "https://wayodontologia.com.br",
+      slug: "way",
     },
   },
 };

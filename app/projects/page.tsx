@@ -1,79 +1,133 @@
-import CodeSnippet from "@/components/code-snippet";
-import { PageHeader } from "@/components/page-header";
-import { PageHeaderHeading } from "@/components/page-header";
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { PageHeader, PageHeaderHeading } from "@/components/page-header";
 import Pager from "@/components/pager";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { code } from "@/config/codeContent";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 
 const ProjectsPage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    initial: 0,
+    slides: {
+      perView: 1,
+      spacing: 15,
+    },
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created() {
+      setLoaded(true);
+    },
+  });
+
+  const [thumbnailRef] = useKeenSlider<HTMLDivElement>({
+    initial: 0,
+    slides: {
+      perView: 2.4,
+      spacing: 20,
+    },
+    breakpoints: {
+      "(max-width: 768px)": {
+        slides: { perView: 1.4, spacing: 20 },
+      },
+      "(max-width: 480px)": {
+        slides: { perView: 1.1, spacing: 20 },
+      },
+    },
+  });
+
+  const projects = Object.entries(siteConfig.projects);
+
+  const getProjectLink = (project: any) => {
+    if ("link" in project) return project.link;
+    if ("github" in project) return project.github;
+    return null;
+  };
+
   return (
     <>
       <PageHeader className="mb-10">
-        <PageHeaderHeading>Projects</PageHeaderHeading>
+        <PageHeaderHeading>Projetos</PageHeaderHeading>
         <PageHeaderHeading className="mt-2 text-muted-foreground">
-          A lot of ideas, but some are still under construction!
+          Ideias transformadas em soluções digitais inovadoras!
         </PageHeaderHeading>
       </PageHeader>
 
-      <div className="flex flex-wrap gap-4 card-container">
-        {Object.entries(siteConfig.projects).map(([key, project]) => (
-          <Card key={key} className="w-full max-w-[350px]  gap-2">
-            <CardHeader>
-              <CardTitle className="leading-6">{project.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-2">
-              <CardDescription>{project.description}</CardDescription>
-              <CardDescription>
-                <div className="flex gap-2">
-                  {"live" in project && (
-                    <Link href={project.live} target="_blank">
-                      <Badge variant="default">Live</Badge>
-                    </Link>
-                  )}
-                  {"github" in project && (
-                    <Link href={project.github} target="_blank">
-                      <Badge variant="outline">GitHub</Badge>
-                    </Link>
-                  )}
-                  {!("live" in project) && !("github" in project) && (
-                    <Badge variant="outline">Private</Badge>
-                  )}
+      {/* Carrossel Principal */}
+      <div className="mb-8">
+        <div ref={sliderRef} className="keen-slider">
+          {projects.map(([key, project]) => (
+            <div key={key} className="keen-slider__slide">
+              <Link href={getProjectLink(project) || "#"}>
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+                  <Image
+                    src={`/assets/projects/${key}.png`}
+                    alt={project.slug}
+                    fill
+                    className="object-cover transition-all hover:scale-105"
+                    priority
+                  />
                 </div>
-              </CardDescription>
-            </CardContent>
-            <div className="my-2 border-t border-border" />
-            <CardFooter className="py-0">
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <Badge key={tag} variant="outline">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </CardFooter>
-          </Card>
-        ))}
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <CodeSnippet code={code.projects} title="projects.ts" />
+      {/* Carrossel de Cards */}
+      <div ref={thumbnailRef} className="keen-slider">
+        {projects.map(([key, project], idx) => (
+          <div
+            key={key}
+            className="keen-slider__slide"
+            onClick={() => instanceRef.current?.moveToIdx(idx)}
+          >
+            <Card
+              className={`h-[280px] cursor-pointer transition-all hover:shadow-lg mx-2 ${
+                currentSlide === idx ? "border-2 border-primary" : ""
+              }`}
+            >
+              <CardHeader>
+                <CardTitle className="line-clamp-2">{project.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col h-full">
+                <CardDescription className="line-clamp-4 mb-4">
+                  {project.description}
+                </CardDescription>
+                <div className="mt-auto">
+                  <Link href={getProjectLink(project) || "#"}>
+                    <Badge variant="default">Ver mais</Badge>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        ))}
+      </div>
 
       <Pager
         prevHref="/about"
         nextHref="/skills-tools"
-        prevTitle="About"
-        nextTitle="Skills & Tools"
+        prevTitle="Sobre mim"
+        nextTitle="Conhecimentos"
       />
     </>
   );
 };
+
 export default ProjectsPage;
