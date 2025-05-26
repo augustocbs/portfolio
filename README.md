@@ -10,7 +10,6 @@ A modern personal portfolio website built with Next.js 15 and React 19.
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Radix UI](https://www.radix-ui.com/)
-- [Node Mailer](https://nodemailer.com/)
 
 ## ✨ Features
 
@@ -64,9 +63,5 @@ To start the production server:
 npm run start
 # or
 yarn start
-
-## 📝 License
-
-This project is private and not open for public use.
 
 ---
