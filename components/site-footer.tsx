@@ -20,13 +20,6 @@ export async function SiteFooter() {
               <span className="font-medium text-foreground">shadcn/ui</span> and{" "}
               <span className="font-medium text-foreground">Tailwind CSS</span>
             </span>
-            <span className="hidden sm:inline"> · </span>
-            <span className="block sm:inline">
-              Coded in{" "}
-              <span className="font-medium text-foreground">Cursor</span> and
-              deployed with{" "}
-              <span className="font-medium text-foreground">Vercel</span>
-            </span>
           </div>
           <div className="text-xs text-center sm:text-sm text-muted-foreground">
             Developed by{" "}

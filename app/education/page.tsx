@@ -5,142 +5,61 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 import Pager from "@/components/pager";
-import { HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { HoverCard } from "@/components/ui/hover-card";
+import { Timeline } from "@/components/time-line";
+import { TimelineItem } from "@/components/ui/time-line-item";
 import { code } from "@/config/codeContent";
-import { siteConfig } from "@/config/site";
-import Link from "next/link";
 
 const EducationPage = () => {
   return (
     <>
       <PageHeader className="mb-10">
-        <PageHeaderHeading>Education</PageHeaderHeading>
+        <PageHeaderHeading>Educação</PageHeaderHeading>
         <PageHeaderHeading className="mt-2 text-muted-foreground">
-          I learned a lot, but the real learning happens in the code editor!
+          Aprendi muito, mas o verdadeiro aprendizado acontece no editor de
+          código!
         </PageHeaderHeading>
         <PageHeaderDescription>
-          Education has always been the cornerstone of my journey into the tech
-          world. Pursuing a Bachelor's in Information Technology (BIT) at Patan
-          Multiple Campus has provided me with a solid foundation in computer
-          science and software engineering principles.
+          A educação sempre foi a base fundamental da minha jornada no mundo da
+          tecnologia. Atualmente cursando Ciência de Dados e Inteligência
+          Artificial, busco constantemente expandir meus conhecimentos e
+          habilidades técnicas.
         </PageHeaderDescription>
-
         <PageHeaderDescription>
-          My academic journey has been complemented by hands-on projects and
-          coursework, enabling me to build practical skills and a deep
-          understanding of modern technological solutions.
+          Minha jornada acadêmica tem sido complementada por projetos práticos e
+          cursos especializados, permitindo desenvolver habilidades práticas e
+          uma compreensão profunda das soluções tecnológicas modernas.
         </PageHeaderDescription>
       </PageHeader>
 
-      <ol className="relative mb-10 border-gray-200 border-s dark:border-gray-700">
-        <li className="mb-10 ms-6">
-          <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <svg
-              className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-            </svg>
-          </span>
-          <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-            Bachelors in Information Technology · Patan Multiple Campus ·
-            Tribhuvan University
-            <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300 ms-3">
-              Latest
-            </span>
-          </h3>
-          <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-            Mar. 2021 - May 2025 (Expected)
-          </time>
-          <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            I am pursuing a Bachelor's in IT at Patan Multiple Campus,
-            specializing in programming, web development, and software
-            engineering.
-          </p>
+      <Timeline>
+        <TimelineItem
+          title="Ciência de Dados e Inteligência Artificial"
+          institution="Universidade DomBosco"
+          period="Jan. 2022 - Dez. 2025 (Esperado)"
+          description="Durante o curso, tenho me aprofundado em áreas como machine learning, análise estatística e processamento de dados em larga escala. Desenvolvo projetos práticos utilizando Python e frameworks modernos de IA."
+          isCurrent
+        />
+        <TimelineItem
+          title="Bacharelado em Sistemas de Informação"
+          institution="Universidade Federal de Uberlândia (UFU)"
+          period="Jan 2019 - Set. 2020 (Interrompida)"
+          description="Durante o período na UFU, construí uma base sólida em programação, estruturas de dados e desenvolvimento de software. Participei de projetos acadêmicos envolvendo C, C++ e desenvolvimento web, além de ter sido membro ativo em grupos de estudos de programação."
+        />
+        <TimelineItem
+          title="Curso Técnico em Meio Ambiente"
+          institution="SENAI"
+          period="Jul. 2016 - Jan. 2018"
+          description="O curso técnico me proporcionou uma visão única sobre sustentabilidade e tecnologia. Participei de iniciativas de conscientização ambiental e aprendi sobre a importância da tecnologia na preservação do meio ambiente."
+        />
+      </Timeline>
 
-          <HoverCard>
-            <HoverCardTrigger className="cursor-pointer ">
-              {/* <Link href={siteConfig.bitinfonepal}>
-              Visit bitinfonepal.com
-              </Link> */}
-              @bitinfonepal.com
-            </HoverCardTrigger>
-            <HoverCardContent>
-              <p>
-                I co-created{" "}
-                <Link
-                  href={siteConfig.bitinfonepal}
-                  className="underline cursor-pointer underline-offset-4"
-                >
-                  bitinfonepal.com
-                </Link>
-                , an exam-friendly platform for BIT students. This website helps
-                students prepare for their exams by providing resources like
-                notes, syllabuses, past questions, and BIT filtered notices,
-                offering a comprehensive study companion.
-              </p>
-            </HoverCardContent>
-          </HoverCard>
-        </li>
-        <li className="mb-10 ms-6">
-          <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <svg
-              className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-            </svg>
-          </span>
-          <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-            Physical Science · Deep Boarding High School · NEB
-          </h3>
-          <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-            July 2018 - Oct. 2020
-          </time>
-          <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-            I completed my higher secondary education in Physical Science from
-            Deep Boarding High School, Butwal.
-          </p>
-        </li>
-        <li className="ms-6">
-          <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <svg
-              className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-            </svg>
-          </span>
-          <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-            Secondary Education · Motherland English School · SEE
-          </h3>
-          <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-            Apr. 2005 - Mar. 2018
-          </time>
-          <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-            I completed my foundational education up to SEE at Motherland
-            English School
-          </p>
-        </li>
-      </ol>
-
-      <CodeSnippet code={code.educationJourney} title="educationJourney.ts" />
+      <CodeSnippet code={code.educationJourney} title="educationJourney.php" />
 
       <Pager
         prevHref="/experience"
         nextHref="/contact"
-        prevTitle="Experience"
-        nextTitle="Contact"
+        prevTitle="Experiência"
+        nextTitle="Contato"
       />
     </>
   );

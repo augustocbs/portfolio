@@ -8,6 +8,7 @@ import {
 import { getGitHubStatsServerAction } from "../actions/getGitHubStatsServerAction";
 import GitHubGraphs from "./GitHubGraphs";
 import styles from "./stats.module.css";
+import { ProfileViewCounter } from "../actions/getProfileViewCounter";
 
 const StatCard = ({
   title,
@@ -34,8 +35,13 @@ const StatCard = ({
 
 const Stats = async () => {
   const githubStats = await getGitHubStatsServerAction();
+  const githubViewCounter = await ProfileViewCounter();
 
   const githubStatCards = [
+    {
+      title: "Visitas ao meu Perfil",
+      value: githubViewCounter || 0,
+    },
     {
       title: "Total de Repositórios Públicos",
       value: githubStats.public_repos || 0,

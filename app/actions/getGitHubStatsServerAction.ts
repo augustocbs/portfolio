@@ -7,7 +7,9 @@ export async function getGitHubStatsServerAction() {
     const response = await fetch(
       `https://api.github.com/users/${siteConfig.links.githubUsername}`
     );
+    
     const data = await response.json();
+
     return {
       name: data.name,
       bio: data.bio,

@@ -32,13 +32,13 @@ export function MainNav() {
           Home
         </Link>
 
-        <Link
+        {/* <Link
           href={siteConfig.links.resume}
           target="_blank"
           className="flex gap-1"
         >
           Resume <ExternalLink className="size-3" />
-        </Link>
+        </Link> */}
       </nav>
     </div>
   );
