@@ -28,12 +28,6 @@ const IntroductionPage = async () => {
           real através de código limpo e boas práticas de desenvolvimento.
         </PageHeaderDescription>
         <PageActions>
-          {/* <Button asChild size="sm" className="rounded-md">
-            <Link href={siteConfig.links.resume} target="_blank">
-              Currículo
-              <ExternalLink className="size-3" strokeWidth={2} />
-            </Link>
-          </Button> */}
           <Button asChild size="sm" variant="ghost" className="rounded-md">
             <Link href={siteConfig.links.email}>
               <Mail className="size-4" />

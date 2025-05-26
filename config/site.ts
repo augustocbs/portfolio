@@ -10,14 +10,6 @@ export const siteConfig = {
     githubUsername: "augustocbs",
   },
   projects: {
-    sebrae: {
-      title:
-        "SEBRAE Ingresse · Plataforma digital para capacitação de empreendedores",
-      description:
-        "Plataforma digital inovadora desenvolvida exclusivamente para o SEBRAE, oferecendo um ambiente completo de aprendizagem com cursos, mentorias e ferramentas essenciais para o desenvolvimento empresarial. Facilita o acesso a conteúdos educacionais premium e fornece suporte personalizado para empreendedores em diferentes estágios de negócio.",
-      link: "https://hub.sebraeingresse.com.br",
-      slug: "sebrae",
-    },
     livid: {
       title:
         "LIVID · Prova de Vida Digital, Consulta de Óbito e Recadastramento Automatizado",
@@ -25,6 +17,14 @@ export const siteConfig = {
         "Solução completa para prova de vida digital, atualização cadastral e verificação de óbitos. Oferece integração via API com sistemas corporativos, garantindo segurança, agilidade e conformidade em processos de validação de dados.",
       link: "https://livid.com.br/",
       slug: "livid",
+    },
+    sebrae: {
+      title:
+        "SEBRAE Ingresse · Plataforma digital para capacitação de empreendedores",
+      description:
+        "Plataforma digital inovadora desenvolvida exclusivamente para o SEBRAE, oferecendo um ambiente completo de aprendizagem com cursos, mentorias e ferramentas essenciais para o desenvolvimento empresarial. Facilita o acesso a conteúdos educacionais premium e fornece suporte personalizado para empreendedores em diferentes estágios de negócio.",
+      link: "https://hub.sebraeingresse.com.br",
+      slug: "sebrae",
     },
     buscaGlobal: {
       title: "Busca Global · Sistema Integrado de Certidões",
