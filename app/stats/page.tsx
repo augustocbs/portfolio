@@ -58,10 +58,10 @@ const Stats = () => {
   }
 
   const githubStatCards = [
-    {
-      title: "Visitas ao meu Perfil",
-      value: views || 0,
-    },
+    // {
+    //   title: "Visitas ao meu Perfil",
+    //   value: views || 0,
+    // },
     {
       title: "Total de Repositórios Públicos",
       value: stats?.public_repos || 0,

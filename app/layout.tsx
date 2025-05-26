@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Augusto Cesar",
-      url: "https://augustocbs.com.br",
+      url: "https://augustocbs.github.io/portfolio/",
     },
   ],
   creator: "Augusto Cesar",

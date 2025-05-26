@@ -76,7 +76,7 @@ const ProjectsPage = () => {
               <Link href={getProjectLink(project) || "#"}>
                 <div className="relative aspect-video w-full overflow-hidden rounded-lg">
                   <Image
-                    src={`/assets/projects/${key}.png`}
+                    src={`/portfolio/assets/projects/${key}.png`} // Adicione /portfolio no início
                     alt={project.slug}
                     fill
                     className="object-cover transition-all hover:scale-105"

@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "augustocbs.com.br",
-  url: "https://augustocbs.com.br",
+  name: "Augusto Cesar",
+  url: "https://augustocbs.github.io/portfolio/",
   description: "Portfolio de Augusto Cesar",
   links: {
     shadcn: "https://ui.shadcn.com/",
