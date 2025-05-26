@@ -64,7 +64,7 @@ const ProjectsPage = () => {
       <PageHeader className="mb-10">
         <PageHeaderHeading>Projetos</PageHeaderHeading>
         <PageHeaderHeading className="mt-2 text-muted-foreground">
-          Ideias transformadas em soluções digitais inovadoras!
+          Ideias transformadas em soluções digitais!
         </PageHeaderHeading>
       </PageHeader>
 
@@ -76,7 +76,7 @@ const ProjectsPage = () => {
               <Link href={getProjectLink(project) || "#"}>
                 <div className="relative aspect-video w-full overflow-hidden rounded-lg">
                   <Image
-                    src={`/portfolio/assets/projects/${key}.png`} // Adicione /portfolio no início
+                    src={`/portfolio/assets/projects/${key}.png`}
                     alt={project.slug}
                     fill
                     className="object-cover transition-all hover:scale-105"

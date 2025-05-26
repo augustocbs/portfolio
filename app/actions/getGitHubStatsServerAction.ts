@@ -3,13 +3,7 @@ import { siteConfig } from "@/config/site";
 export async function getGitHubStats() {
   try {
     const response = await fetch(
-      `https://api.github.com/users/${siteConfig.links.githubUsername}`,
-      {
-        headers: {
-          'Accept': 'application/json',
-          'Cache-Control': 'no-cache'
-        },
-      }
+      `https://api.github.com/users/${siteConfig.links.githubUsername}`
     );
     
     const data = await response.json();

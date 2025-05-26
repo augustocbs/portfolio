@@ -3,13 +3,7 @@ import { siteConfig } from "@/config/site";
 export async function getProfileViewCounter() {
   try {
     const response = await fetch(
-      `https://komarev.com/ghpvc/?username=${siteConfig.links.githubUsername}`,
-      {
-        headers: {
-          'Accept': 'text/plain',
-          'Cache-Control': 'no-cache'
-        },
-      }
+      `https://komarev.com/ghpvc/?username=${siteConfig.links.githubUsername}`
     );
     const svgText = await response.text();
 

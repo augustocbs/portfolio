@@ -51,9 +51,9 @@ export function MobileNav() {
               d="M3.75 9h16.5m-16.5 6.75h16.5"
             />
           </svg>
-          <span className="sr-only">Toggle Menu</span>
+          <span className="sr-only">Menu</span>
           <span className="flex items-center justify-between flex-1 h-8 px-2 text-sm font-normal border rounded-md shadow-none bg-muted/50 text-muted-foreground">
-            Search sections...
+            Buscar secções...
           </span>
         </Button>
       </DrawerTrigger>
@@ -130,7 +130,7 @@ export function MobileNav() {
               </div>
             </div>
             <p className="text-xs text-center text-muted-foreground">
-              — End of the menu —
+              — Fim do menu —
             </p>
           </div>
         </DrawerContent>
