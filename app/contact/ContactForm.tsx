@@ -7,7 +7,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ControlledInput } from "@/components/controlled/controlled-input";
-import { sendMessageServerAction } from "../actions/sendMailServerAction";
 
 const formSchema = z.object({
   fullname: z
@@ -46,23 +45,23 @@ const ContactForm = () => {
   });
 
   const onSubmit = async (data: FormData) => {
-    try {
-      const formData = new FormData();
-      formData.append("fullname", data.fullname);
-      formData.append("email", data.email);
-      formData.append("message", data.message);
+    // try {
+    //   const formData = new FormData();
+    //   formData.append("fullname", data.fullname);
+    //   formData.append("email", data.email);
+    //   formData.append("message", data.message);
 
-      const response = await sendMessageServerAction(formData);
+    //   const response = await sendMessageServerAction(formData);
 
-      if (response.success) {
-        toast.success(response.success);
-        reset();
-      } else {
-        toast.error(response.error);
-      }
-    } catch (error) {
-      toast.error("Erro ao enviar a mensagem. Tente novamente.");
-    }
+    //   if (response.success) {
+    //     toast.success(response.success);
+    //     reset();
+    //   } else {
+    //     toast.error(response.error);
+    //   }
+    // } catch (error) {
+    //   toast.error("Erro ao enviar a mensagem. Tente novamente.");
+    // }
   };
 
   return (
