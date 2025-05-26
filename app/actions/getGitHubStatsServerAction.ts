@@ -1,11 +1,15 @@
-"use server";
-
 import { siteConfig } from "@/config/site";
 
-export async function getGitHubStatsServerAction() {
+export async function getGitHubStats() {
   try {
     const response = await fetch(
-      `https://api.github.com/users/${siteConfig.links.githubUsername}`
+      `https://api.github.com/users/${siteConfig.links.githubUsername}`,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Cache-Control': 'no-cache'
+        },
+      }
     );
     
     const data = await response.json();
